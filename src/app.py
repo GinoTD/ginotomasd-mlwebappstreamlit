@@ -4,7 +4,7 @@ import streamlit as st
 import joblib
 
 # Load the trained model
-model = joblib.load('model.pkl')
+model = joblib.load('ridge_model.pkl')
 
 # Set up the Streamlit app UI
 st.set_page_config(page_title="ML Predictor", layout="centered")
