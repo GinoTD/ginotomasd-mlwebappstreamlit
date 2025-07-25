@@ -82,6 +82,21 @@ user_input = st.text_input("🔗 URL")
 if st.button("Predict"):
     if user_input:
         features = extract_features(user_input.strip())
+
+        # Reorder columns to match training feature order
+        expected_features = [
+            'nb_dots', 'nb_hyphens', 'nb_at', 'nb_qm', 'nb_and', 'nb_eq',
+            'nb_underscore', 'nb_percent', 'nb_slash', 'nb_colon', 'nb_star',
+            'nb_comma', 'nb_semicolumn', 'nb_dollar', 'nb_space', 'url_length',
+            'hostname_length', 'path_length', 'fd_length', 'tld_length',
+            'nb_subdomains', 'nb_www', 'nb_com', 'https_token', 'ratio_digits_url',
+            'ratio_digits_host', 'ratio_letters_url', 'ratio_letters_host',
+            'punycode', 'port', 'tld_in_path', 'tld_in_subdomain',
+            'abnormal_subdomain', 'nb_redirection', 'nb_external_redirection',
+            'domain_in_ip', 'shortening_service'
+        ]
+        features = features[expected_features]
+
         prediction = model.predict(features)[0]
 
         if prediction == 1:
