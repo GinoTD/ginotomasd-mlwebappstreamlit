@@ -97,7 +97,7 @@ if st.button("Predict"):
         ]
         features = features[expected_features]
 
-        prediction = model.predict(features)[0]
+        prediction = model.predict(features.values)[0]
 
         if prediction == 1:
             st.error("⚠️ This link is likely **SPAM**.")
