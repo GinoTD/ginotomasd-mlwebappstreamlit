@@ -2,9 +2,11 @@
 
 import streamlit as st
 import joblib
+import os
 
-# Load the trained model
-model = joblib.load('model.pkl')  # Make sure the path is correct if the model is inside /models/
+# Build absolute path
+model_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'model.pkl')
+model = joblib.load(model_path)
 
 # Set up the Streamlit app UI
 st.set_page_config(page_title="ML Predictor", layout="centered")
