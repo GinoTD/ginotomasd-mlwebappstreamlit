@@ -2,9 +2,11 @@
 
 import streamlit as st
 import joblib
+import os
 
-# Load the trained model
-model = joblib.load('ridge_model.pkl')
+# Load the model from the same folder
+model_path = os.path.join(os.path.dirname(__file__), 'ridge_model.pkl')
+model = joblib.load(model_path)
 
 # Set up the Streamlit app UI
 st.set_page_config(page_title="ML Predictor", layout="centered")
