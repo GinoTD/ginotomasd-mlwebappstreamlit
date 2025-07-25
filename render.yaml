@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: streamlit-ml-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run src/app.py
+    plan: free
